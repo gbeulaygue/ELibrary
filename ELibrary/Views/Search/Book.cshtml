@@ -28,25 +28,6 @@
                 @Html.DisplayFor(model => model.DateOfPublication)
             </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Author.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Author.Name)
-            </dd>
-
-            @if (Model.Customer != null)
-            {
-                <dt>
-                    @Html.DisplayNameFor(model => model.Customer.Name)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Customer.Name)
-                </dd>
-            }
-
         </dl>
     </div>
     <p>
@@ -56,6 +37,6 @@
 }
 else
 {
-    <p>No book found with this id</p>
+    <p>No book found</p>
     @Html.ActionLink("Back to List", "Index")
 }

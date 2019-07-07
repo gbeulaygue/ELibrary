@@ -230,5 +230,55 @@ namespace ELibrary.Tests
             Assert.AreEqual(new DateTime(2001, 12, 05), books[1].DateOfPublication);
             Assert.AreEqual(books[1].Author.Name, "John");
         }
+
+        [TestMethod]
+        public void SearchBook_CreateAAuthorAndABook_SearchTheBookWithAStringContainsInBookName_ReturnTheGoodBook()
+        {
+            dal.CreateAuthor("John");
+            dal.CreateBook("The Lord Of The Ring", new DateTime(1954, 07, 29), "1");
+
+            Book book = dal.SearchBook("Lord");
+
+            Assert.IsNotNull(book);
+            Assert.AreEqual("The Lord Of The Ring", book.Title);
+            Assert.AreEqual(new DateTime(1954, 07, 29), book.DateOfPublication);
+            Assert.AreEqual(book.Author.Name, "John");
+        }
+
+        [TestMethod]
+        public void SearchBook_CreateAAuthorAndABook_SearchTheBookWithAStringNotContainInBookName_ReturnNull()
+        {
+            dal.CreateAuthor("John");
+            dal.CreateBook("The Lord Of The Ring", new DateTime(1954, 07, 29), "1");
+
+            Book book = dal.SearchBook("Harry");
+
+            Assert.IsNull(book);
+        }
+
+        [TestMethod]
+        public void SearchBook_CreateAAuthorAndABook_SearchTheBookWithAStringConainsInAuthorName_ReturnTheGoodBook()
+        {
+            dal.CreateAuthor("John");
+            dal.CreateBook("The Lord Of The Ring", new DateTime(1954, 07, 29), "1");
+
+            Book book = dal.SearchBook("John");
+
+            Assert.IsNotNull(book);
+            Assert.AreEqual("The Lord Of The Ring", book.Title);
+            Assert.AreEqual(new DateTime(1954, 07, 29), book.DateOfPublication);
+            Assert.AreEqual(book.Author.Name, "John");
+        }
+
+        [TestMethod]
+        public void SearchBook_CreateAAuthorAndABook_SearchTheBookWithAStringStringNotContainsInAuthorName_ReturnNull()
+        {
+            dal.CreateAuthor("John");
+            dal.CreateBook("The Lord Of The Ring", new DateTime(1954, 07, 29), "1");
+
+            Book book = dal.SearchBook("Do");
+
+            Assert.IsNull(book);
+        }
     }
 }

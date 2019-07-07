@@ -113,6 +113,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DisplayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,6 +142,7 @@
     <Content Include="Views\Display\GenerateData.cshtml" />
     <Content Include="Views\Display\Book.cshtml" />
     <Content Include="Views\Display\Author.cshtml" />
+    <Content Include="Views\Search\Book.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

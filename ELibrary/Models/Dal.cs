@@ -82,7 +82,7 @@ namespace ELibrary.Models
 
         public Book SearchBook(string search)
         {
-            return dataBase.Books.FirstOrDefault(b => b.Title.Contains(search));
+            return dataBase.Books.FirstOrDefault(b => b.Title.Contains(search) || b.Author.Name.Contains(search));
         }
 
         public void CreateBook(string title, DateTime parutionDate, string idAuthor)
