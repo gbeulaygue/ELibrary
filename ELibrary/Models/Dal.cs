@@ -85,6 +85,11 @@ namespace ELibrary.Models
             return dataBase.Books.FirstOrDefault(b => b.Title.Contains(search) || b.Author.Name.Contains(search));
         }
 
+        public List<Book> SearchBooks(string search)
+        {
+            return dataBase.Books.Where(b => b.Title.Contains(search) || b.Author.Name.Contains(search)).ToList();
+        }
+
         public void CreateBook(string title, DateTime parutionDate, string idAuthor)
         {
             Book book = new Book

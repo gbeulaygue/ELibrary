@@ -125,6 +125,7 @@
     <Compile Include="Models\IDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
+    <Compile Include="ViewModels\SearchBooksViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -143,6 +144,8 @@
     <Content Include="Views\Display\Book.cshtml" />
     <Content Include="Views\Display\Author.cshtml" />
     <Content Include="Views\Search\Book.cshtml" />
+    <Content Include="Views\Search\Books.cshtml" />
+    <Content Include="Views\Search\_Books.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

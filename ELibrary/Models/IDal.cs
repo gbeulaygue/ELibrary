@@ -16,6 +16,7 @@ namespace ELibrary.Models
         Author GetAuthor(string idStr);
         List<Book> GetAllBooksFromAuthor(int id);
         Book SearchBook(string search);
+        List<Book> SearchBooks(string search);
         void CreateAuthor(string name);
         void ModifyAuthor(int id, string name);
         void CreateBook(string title, DateTime parutionDate, string idAuthor);
