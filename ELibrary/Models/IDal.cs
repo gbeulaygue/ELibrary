@@ -22,5 +22,6 @@ namespace ELibrary.Models
         void CreateBook(string title, DateTime parutionDate, string idAuthor);
         void ModifyBook(int id, string title, DateTime parutionDate, string idAuthor);
         void GenerateData();
+        bool existBook(string title);
     }
 }

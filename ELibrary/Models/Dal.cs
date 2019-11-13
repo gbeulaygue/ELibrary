@@ -116,6 +116,11 @@ namespace ELibrary.Models
             }
         }
 
+        public bool existBook(string title)
+        {
+            return dataBase.Books.Any(b => string.Compare(b.Title, title, StringComparison.CurrentCultureIgnoreCase) == 0);
+        }
+
         public void Dispose()
         {
             dataBase.Dispose();
