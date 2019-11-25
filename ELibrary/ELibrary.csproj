@@ -129,6 +129,7 @@
     <Compile Include="Models\Dal.cs" />
     <Compile Include="Models\DataBaseContext.cs" />
     <Compile Include="Models\IDal.cs" />
+    <Compile Include="Models\InitELibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AddBookViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
@@ -154,6 +155,7 @@
     <Content Include="Views\Search\Books.cshtml" />
     <Content Include="Views\Search\_Books.cshtml" />
     <Content Include="Views\Add\Book.cshtml" />
+    <Content Include="Views\Add\Author.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

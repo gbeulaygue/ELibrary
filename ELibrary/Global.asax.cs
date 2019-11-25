@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Data.Entity;
+using ELibrary.Models;
 
 namespace ELibrary
 {
@@ -13,6 +15,10 @@ namespace ELibrary
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            IDatabaseInitializer<DataBaseContext> init = new InitELibrary();
+            Database.SetInitializer(init);
+            init.InitializeDatabase(new DataBaseContext());
         }
     }
 }

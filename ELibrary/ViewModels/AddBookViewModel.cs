@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using ELibrary.Models;
 
 namespace ELibrary.ViewModels
@@ -10,7 +11,7 @@ namespace ELibrary.ViewModels
     public class AddBookViewModel
     {
         public Book Book { get; set; }
-        public List<Author> Authors { get; set; }
+        public SelectList SelectListAuthors { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {

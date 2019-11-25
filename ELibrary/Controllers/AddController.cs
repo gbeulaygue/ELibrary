@@ -29,39 +29,54 @@ namespace ELibrary.Controllers
 
         public ActionResult Book()
         {
-            AddBookViewModel addBookViewModel = new AddBookViewModel()
-            {
-                Book = new Book(),
-                Authors = dal.GetAllAuthors()
-            };
+            List<Author> listOfAuthors = dal.GetAllAuthors();
 
-            return View(addBookViewModel);
+            ViewBag.listOfAuthors = new SelectList(listOfAuthors, "Id", "Name");
+
+            return View();
         }
 
         [HttpPost]
-        public ActionResult Book(AddBookViewModel _addBookViewModel)
+        public ActionResult Book(Book _book)
         {
-            if (!ModelState.IsValid)
+            //if (dal.existBook(_book.Title))
+            //{
+            //    List<Author> listOfAuthors = dal.GetAllAuthors();
+            //    ViewBag.listOfAuthors = new SelectList(listOfAuthors, "Id", "Name");
+
+            //    ModelState.AddModelError("Book.Title", "This book name already exists");
+            //    return View(_book);
+            //}
+            //if (!ModelState.IsValid)
+            //{
+            //    List<Author> listOfAuthors = dal.GetAllAuthors();
+            //    ViewBag.listOfAuthors = new SelectList(listOfAuthors, "Id", "Name");
+
+            //    return View(_book);
+            //}
+            //string authorStr = Request.QueryString[""];
+            //dal.CreateBook(_book.Title, _book.DateOfPublication, Id.ToString());
+            //return RedirectToAction("Index");
+            List<Author> listOfAuthors = dal.GetAllAuthors();
+
+            ViewBag.listOfAuthors = new SelectList(listOfAuthors, "Id", "Name");
+            return View();
+        }
+
+        public ActionResult Author()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Author(Author _author)
+        {
+            if(!ModelState.IsValid)
             {
-                AddBookViewModel addBookViewModel = new AddBookViewModel()
-                {
-                    Book = new Book(),
-                    Authors = dal.GetAllAuthors()
-                };
-                return View(addBookViewModel);
+                return View(_author);
             }
-            if (dal.existBook(_addBookViewModel.Book.Title))
-            {
-                AddBookViewModel addBookViewModel = new AddBookViewModel()
-                {
-                    Book = _addBookViewModel.Book,
-                    Authors = dal.GetAllAuthors()
-                };
-                ModelState.AddModelError("Title", "This book name already exists");
-                return View(addBookViewModel);
-            }
-            dal.CreateBook(_addBookViewModel.Book.Title, _addBookViewModel.Book.DateOfPublication, _addBookViewModel.Book.Author.Id.ToString());
-            return RedirectToAction("Index");
+            dal.CreateAuthor(_author.Name);
+            return View();
         }
     }
 }

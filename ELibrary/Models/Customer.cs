@@ -8,9 +8,9 @@ namespace ELibrary.Models
 {
     public class Customer
     {
-        [Key,Required]
+        public int Id { get; set; }
+        [Required]
         public string Email { get; set; }
         public string Name { get; set; }
-        //public virtual List<Book> Books { get; set; }
     }
 }
